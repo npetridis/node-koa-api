@@ -1,34 +1,49 @@
-import 'dotenv/config';
+// import 'dotenv/config';
+// 
+// import Koa from 'koa';
+// import { User } from './models';
+// import mongoose from 'mongoose';
+// 
+// import router from './routes';
+// 
+// const app = new Koa();
+// const port = process.env.PORT || 1337;
 
-import Koa from 'koa';
-import { User } from './models';
-import mongoose from 'mongoose';
+// mongoose.connect('mongodb://localhost/imdb');
 
-const app = new Koa();
-const PORT = process.env.PORT || 1337;
+import setupServer from './setupServer';
 
-// var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/imdb');
+export default setupServer;
 
-// const User = require('./models/User.js');
+// (async () => {
+//   try {
+//     const info = await connectDatabase(databaseConfig);
+//     console.log(`Connected to ${info.host}:${info.port}/${info.name}`);
+//   } catch (error) {
+//     console.error('Unable to connect to database');
+//   }
+// 
+//   await app.listen(port);
+//   console.log(`Server started on port ${port}`);
+// })();
 
-console.log('meraa');
+// app.use(router.routes());
 
-app.use(async (ctx) => {
-  ctx.body = {
-    status: 'success',
-    message: 'hello, world!'
-  };
-  const user = new User({
-    firstName: 'Nikos', 
-    lastName:'Petridis', 
-    dob: new Date()
-  })
-  user.save();
-});
+// app.use(async (ctx) => {
+//   ctx.body = {
+//     status: 'success',
+//     message: 'hello, world!'
+//   };
+//   const user = new User({
+//     firstName: 'Nikos', 
+//     lastName:'Petridis', 
+//     dob: new Date()
+//   })
+//   user.save();
+// });
 
-const server = app.listen(PORT, () => {
-  console.log(`Server listening on port: ${PORT}`);
-});
+// const server = app.listen(port, () => {
+//   console.log(`Server listening on port: ${port}`);
+// });
 
-module.exports = server;
+// module.exports = server;

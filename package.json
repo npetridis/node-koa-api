@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node --exec babel-node --presets env,stage-2 ./src/server/index.js",
-    "start-watch": "nodemon --exec babel-node --presets env,stage-2 ./src/server/index.js",
+    "start": "nodemon --exec babel-node --presets env,stage-2 ./src/index.js",
     "test": "./node_modules/mocha/bin/_mocha --compilers js:babel-register --require babel-polyfill --exit"
   },
   "keywords": [],
@@ -24,6 +23,7 @@
   "dependencies": {
     "dotenv": "^6.2.0",
     "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
     "mongoose": "^5.3.16"
   }
 }
