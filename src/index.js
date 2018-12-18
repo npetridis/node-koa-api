@@ -1,15 +1,16 @@
 import Koa from 'koa';
 import connectDatabase from './database';
 import setupServer from './server';
+import config from '../config';
 
-import 'dotenv/config';
+console.log('environment:', process.env.NODE_ENV)
 
 const app = new Koa();
-const port = process.env.PORT || 1337;
+const port = config.app.port || 1337;
 
 (async () => {
   try {
-    const info = await connectDatabase(process.env.DB_URI);
+    const info = await connectDatabase(config.db.uri);
     console.log(`Connected to ${info.host}:${info.port}/${info.name}`);
   } catch (error) {
     console.error('Unable to connect to database');
@@ -19,3 +20,5 @@ const port = process.env.PORT || 1337;
 
   await app.listen(port, () => console.log(`Server listening on port: ${port}`));
 })();
+
+export default app;

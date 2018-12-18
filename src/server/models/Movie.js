@@ -1,4 +1,3 @@
-// const mongoose = require('mongoose');
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
@@ -12,6 +11,14 @@ const MovieSchema = new Schema({
     type: Date,
     required: true,
   },
+  genre: {
+    type: String,
+    required: true,
+  },
+  rating: {
+    type: Number,
+    required: true,
+  }
 });
 
 // module.exports = mongoose.model('Movie', MovieSchema);

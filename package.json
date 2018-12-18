@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon --exec babel-node --presets env,stage-2 ./src/index.js",
-    "test": "./node_modules/mocha/bin/_mocha --compilers js:babel-register --require babel-polyfill --exit"
+    "prestart": "set NODE_ENV=dev",
+    "start": "set NODE_ENV=dev && nodemon --exec babel-node --presets env,stage-2 ./src/index.js",
+    "test": "./node_modules/mocha/bin/_mocha --require babel-register --require babel-polyfill --exit"
   },
   "keywords": [],
   "author": "Nikos Petridis",
@@ -23,7 +24,11 @@
   "dependencies": {
     "dotenv": "^6.2.0",
     "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-passport": "^4.1.1",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.3.16"
+    "koa-session": "^5.10.0",
+    "mongoose": "^5.3.16",
+    "passport-local": "^1.0.0"
   }
 }
