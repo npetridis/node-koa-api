@@ -6,7 +6,7 @@ const register = async (ctx) => { // TODO verification email to user
     const userData = ctx.request.body;  // TODO: js schema validation of ctx.request.body
     console.log('register data:', userData);
     const user = new User(userData);
-    User.setPassword(ctx.request.body.password);
+    user.setPassword(ctx.request.body.password);
     await user.save();
     
     return passport.authenticate('local', (err, user, info, status) => {

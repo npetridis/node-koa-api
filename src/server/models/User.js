@@ -28,7 +28,11 @@ const UserSchema = new Schema({
   }
 });
 
-UserSchema.methods.setPassword = password => this.password = bcrypt.hash(password, config.bcrypt.saltRounds);
+// UserSchema.methods.setPassword = password => this.password = bcrypt.hash(password, config.bcrypt.saltRounds);
+
+UserSchema.methods.setPassword = async function(password) {
+  this.password = await bcrypt.hash(password, config.bcrypt.saltRounds);
+}
 
 UserSchema.methods.validatePassword = password => bcrypt.compare(password, this.password);
 
