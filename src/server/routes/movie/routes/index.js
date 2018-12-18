@@ -22,6 +22,6 @@ movieRouter
   .get('/movies/:id', getMovieById)
   .post('/movies', addMovie)
   .put('/movies/:id', updateMovie)
-  .delete('movies/:id', deleteMovie);
+  .delete('/movies/:id', deleteMovie);
   
 export default movieRouter;

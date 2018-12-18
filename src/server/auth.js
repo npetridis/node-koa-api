@@ -31,7 +31,21 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-passport.use(new LocalStrategy((username, password, done) => {
+passport.use(new LocalStrategy({
+  usernameField: 'username',
+  passwordField: 'password'
+}, (username, password, done) => {
+  try {
+    const user = await User.findOne({ username });
+    if (user || user.validatePassword(password)) {
+      return done(null, user);
+    } else {
+      return done(null, false, { errors: { 'email or password': 'is invalid' } });
+    }
+  } catch (error) {
+    console.log(error)
+    // TODO error handling?
+  }
   // fetchUser()
   //   .then(user => {
   //     if (username === user.username && password === user.password) {

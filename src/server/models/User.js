@@ -1,4 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
+
+import config from '../../../config';
 
 const Schema = mongoose.Schema;
 
@@ -22,21 +25,11 @@ const UserSchema = new Schema({
   dob: {
     type: Date,
     required: false,
-  },
-  salt: {
-    type: String,
-    required: true
   }
 });
 
-UserSchema.methods.setPassword = function(password) {
-  this.salt = crypto.randomBytes(16).toString('hex');
-  this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-};
+UserSchema.methods.setPassword = password => this.password = bcrypt.hash(password, config.bcrypt.saltRounds);
 
-UserSchema.methods.validatePassword = function(password) {
-  const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-  return this.hash === hash;
-};
+UserSchema.methods.validatePassword = password => bcrypt.compare(password, this.password);
 
 module.exports = mongoose.model('User', UserSchema);

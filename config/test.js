@@ -9,5 +9,8 @@ export default {
    port: 27017,
    name: 'imdb-test',
    uri: 'mongodb://localhost/imdb-test'
+ },
+ bcrypt: {
+   saltRounds: 10
  }
 };

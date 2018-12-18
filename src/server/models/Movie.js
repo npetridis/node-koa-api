@@ -7,10 +7,6 @@ const MovieSchema = new Schema({
     type: String,
     required: true,
   },
-  date: {
-    type: Date,
-    required: true,
-  },
   genre: {
     type: String,
     required: true,

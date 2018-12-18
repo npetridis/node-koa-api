@@ -27,7 +27,7 @@ const getMovieById = async (ctx) => {
 const addMovie = async (ctx) => {
   try {
     const movie = await new Movie(ctx.request.body).save();
-    if (movie.length) {
+    if (movie) {  // TODO maybe due to try catch the if else is not needed
       ctx.status = 201;
       ctx.body = {
         status: 'success',
@@ -56,7 +56,7 @@ const updateMovie = async (ctx) => { // TODO: validate body schema
       { _id: ctx.params.id },
       ctx.request.body
     );
-    if (movie.length) {  // if update 200 or 204
+    if (movie) {  // if update 200 or 204
       ctx.status = 200;
       ctx.body = {
         status: 'success',
@@ -81,8 +81,8 @@ const updateMovie = async (ctx) => { // TODO: validate body schema
 
 const deleteMovie = async (ctx) => {
   try {
-    const movie = await Movie.deleteOne(ctx.request.body);
-    if (movie.length) {
+    const movie = await Movie.findByIdAndDelete(ctx.params.id);
+    if (movie) {
       ctx.status = 200; // TODO check return status
       ctx.body = {
         status: 'success',
