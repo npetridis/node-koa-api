@@ -5,7 +5,7 @@ const getAllMovies = async (ctx) => {
     const movies = await Movie.find();
     ctx.body = movies;
     ctx.status = 200;
-  } catch(error) {
+  } catch (error) {
     console.log(error); 
   }
 }
@@ -19,7 +19,7 @@ const getMovieById = async (ctx) => {
     } else {
       ctx.status = 404;
     }  
-  } catch(error) {
+  } catch (error) {
     console.log(error);
   }
 }
@@ -40,7 +40,7 @@ const addMovie = async (ctx) => {
         message: 'Something went wrong.'
       };
     }
-  } catch(error) {
+  } catch (error) {
     console.log(error);
     ctx.status = 400;
     ctx.body = {
@@ -95,7 +95,7 @@ const deleteMovie = async (ctx) => {
         message: 'That movie does not exist.'
       };
     }
-  } catch(error) {
+  } catch (error) {
     console.log(error);
     ctx.status = 400;
     ctx.body = {
