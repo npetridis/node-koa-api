@@ -20,6 +20,7 @@ const login = async (ctx) => {
   return passport.authenticate('local', (err, user, info, status) => {
     if (user) {
       ctx.login(user);
+      // ctx.body = { success: true };
       ctx.redirect('/auth/status');
     } else {
       ctx.status = 400;

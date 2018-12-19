@@ -9,8 +9,10 @@ const setup = app => {
   
   app.use(bodyParser());
   
+  // import('./auth');
   app.use(passport.initialize());
   app.use(passport.session());
+  require('./auth');
   
   app.use(router.routes());
   

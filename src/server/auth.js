@@ -15,7 +15,7 @@ import { User } from './models';
 //     console.log(error);
 //   }
 // }
-
+console.log('AAAAAAA');
 // const fetchUserById = (id) => User.findOne({ _id: id });  // TODO project username and password
 
 // const fetchUser = (id) => User.findById({ _id: id });  // TODO project username and password
@@ -34,14 +34,17 @@ passport.deserializeUser(async (id, done) => {
 passport.use(new LocalStrategy({
   usernameField: 'username',
   passwordField: 'password'
-}, (username, password, done) => {
+}, async (username, password, done) => {
   try {
     const user = await User.findOne({ username });
-    if (user || user.validatePassword(password)) {
+    console.log('user//', user);
+    console.log('data//', username, password);
+    if (user && user.validatePassword(password)) {
       return done(null, user);
     } else {
       return done(null, false, { errors: { 'email or password': 'is invalid' } });
     }
+  
   } catch (error) {
     console.log(error)
     // TODO error handling?
