@@ -1,4 +1,5 @@
 import Router from 'koa-router';
+import passport from 'koa-passport';
 
 import { 
   getAllMovies, 
@@ -18,7 +19,7 @@ movieRouter
       message: 'hello, world!'
     };
   })
-  .get('/movies', getAllMovies)
+  .get('/movies', passport.authenticate('local'), getAllMovies)
   .get('/movies/:id', getMovieById)
   .post('/movies', addMovie)
   .put('/movies/:id', updateMovie)

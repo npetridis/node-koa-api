@@ -1,16 +1,16 @@
 // import 'dotenv/config';
 
 export default {
- app: {
+  app: {
    port: 4000
- },
- db: {
+  },
+  db: {
    host: 'localhost',
    port: 27017,
    name: 'imdb',
    uri: 'mongodb://localhost/imdb'
- },
- bcrypt: {
+  },
+  bcrypt: {
    saltRounds: 10
- }
+  }
 };
