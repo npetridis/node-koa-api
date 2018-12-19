@@ -1,3 +1,7 @@
 import authRouter from './routes';
+import { authenticate } from './utils';
 
-export default authRouter;
+export {
+  authRouter,
+  authenticate
+};

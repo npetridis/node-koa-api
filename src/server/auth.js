@@ -3,23 +3,6 @@ import { Strategy as LocalStrategy } from 'passport-local';
 
 import { User } from './models';
 
-// const fetchUser = async (id) => {
-//   try {
-//     const user = await User.findOne({ _id: id });
-//     if (user) {
-// 
-//     } else {
-// 
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-console.log('AAAAAAA');
-// const fetchUserById = (id) => User.findOne({ _id: id });  // TODO project username and password
-
-// const fetchUser = (id) => User.findById({ _id: id });  // TODO project username and password
-
 passport.serializeUser((user, done) => done(null, user.id));
 
 passport.deserializeUser(async (id, done) => {
@@ -37,8 +20,8 @@ passport.use('local', new LocalStrategy({
 }, async (username, password, done) => {
   try {
     const user = await User.findOne({ username });
-    console.log('user//', user);
-    console.log('data//', username, password);
+    // console.log('user//', user);
+    // console.log('data//', username, password);
     if (user && user.validatePassword(password)) {
       return done(null, user);
     } else {
@@ -49,13 +32,4 @@ passport.use('local', new LocalStrategy({
     console.log(error)
     // TODO error handling?
   }
-  // fetchUser()
-  //   .then(user => {
-  //     if (username === user.username && password === user.password) {
-  //       done(null, user)
-  //     } else {
-  //       done(null, false)
-  //     }
-  //   })
-  //   .catch(err => done(err))
 }));
