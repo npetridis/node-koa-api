@@ -2,13 +2,19 @@ const logout = async (ctx) => {
   if (ctx.isAuthenticated()) {
     const user = ctx.state.user
     ctx.logout();
-    ctx.body = { 
-      success: true,
-      message: 'User successfully logged out ' + user.username
-    };
+    
+    ctx.status = 204;
+    // ctx.body = { 
+    //   status: 'success',
+    //   message: 'User successfully logged out ' + user.username
+    // };
   } else {
-    ctx.body = { success: false };
-    ctx.throw(401);
+    ctx.status = 403;
+    // ctx.body = { 
+    //   status: 'success'
+    //   message: 'The user wasn\'t logged in.'
+    //  };
+    // ctx.throw(401);
   }
 }
 

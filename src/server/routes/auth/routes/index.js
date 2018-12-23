@@ -8,9 +8,14 @@ import {
 
 const authRouter = new Router();
 
+const peek = async (ctx, next) => {
+  console.warn('request body:\n', ctx.request.body);
+  await next();
+}
+
 authRouter
   // .prefix('/auth')
-  .post('/register', register)
+  .post('/register', peek, register)
   .post('/login', login)
   .get('/logout', logout)
   .get('/status', status);

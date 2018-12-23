@@ -8,7 +8,7 @@ import {
   addMovie, 
   updateMovie,
   deleteMovie
-} from '../controllers/movieControllers';
+} from '../controllers';
 
 const movieRouter = new Router();
 
