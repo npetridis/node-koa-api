@@ -1,4 +1,4 @@
-const authenticate = async (ctx, next) => {
+const authenticator = async (ctx, next) => {
   // console.log('ctx', ctx);
   // console.log('cookies', ctx.cookies);
   if (ctx.isAuthenticated()) {
@@ -9,4 +9,4 @@ const authenticate = async (ctx, next) => {
   }
 }
 
-export default authenticate;
+export default authenticator;
