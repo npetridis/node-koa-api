@@ -12,8 +12,6 @@ import {
 
 const prefix = '/auth';
 
-console.log('BBB', registerSchema, loginSchema);
-
 const routes = [
   {
     method: 'POST',

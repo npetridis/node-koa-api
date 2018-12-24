@@ -3,7 +3,7 @@ import Ajv from 'ajv';
 const ajv = new Ajv();
 
 const validator = schema => {
-  console.log('AAAAA', schema)
+  // console.log('AAAAA', schema)
   const validate = ajv.compile(schema);
   return async (ctx, next) => {
     const valid = validate(ctx.request.body);

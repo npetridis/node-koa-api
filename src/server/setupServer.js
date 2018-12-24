@@ -16,7 +16,7 @@ const setup = app => {
   // import('./auth');
   app.use(passport.initialize());
   app.use(passport.session());
-  require('./auth');
+  require('./passport');
   
   const router = createRouter([authRoutes, movieRoutes]);
   app.use(router.routes());
