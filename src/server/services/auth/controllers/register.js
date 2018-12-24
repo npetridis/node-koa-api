@@ -1,15 +1,12 @@
-import { User } from '../../../models';
-// ajv object validation
+import { Users } from '../../../domain';
 
 const register = async (ctx) => { // TODO verification email to user
   try {
-    const userData = ctx.request.body;  // TODO: js schema validation of ctx.request.body
-    const user = await new User(userData).save();
-    
+    const user = await Users.saveUser(ctx.request.body);
     ctx.status = 200;
     ctx.body = {
       status: 'success',
-      payload: user
+      payload: user   // TODO remove payload
     };
   } catch (error) {
     console.log(error);

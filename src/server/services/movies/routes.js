@@ -1,4 +1,4 @@
-import { authenticator, validator } from '../../utils'
+import { authenticator, validator } from '../../middleware';
 import { movie as movieSchema } from './schemas';
 import { 
   getAllMovies, 

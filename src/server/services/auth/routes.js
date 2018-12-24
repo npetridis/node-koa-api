@@ -1,4 +1,4 @@
-import { validator } from '../../utils';
+import { validator } from '../../middleware';
 import { 
   register as registerSchema, 
   login as loginSchema 

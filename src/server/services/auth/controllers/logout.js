@@ -2,7 +2,6 @@ const logout = async (ctx) => {
   if (ctx.isAuthenticated()) {
     const user = ctx.state.user
     ctx.logout();
-    
     ctx.status = 204;
     // ctx.body = { 
     //   status: 'success',

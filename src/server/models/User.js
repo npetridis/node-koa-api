@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
-UserSchema.pre('save', async function(next) {  // TODO giati den paizei me arrow function??
+UserSchema.pre('save', async function(next) {  // TODO den paizei me arrow function??
   if (!this.isModified('password')) return next();
   this.password = await bcrypt.hash(this.password, config.bcrypt.saltRounds);
   next();

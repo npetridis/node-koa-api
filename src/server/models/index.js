@@ -5,5 +5,3 @@ export {
   Movie,
   User
 };
-
-// export default User;
