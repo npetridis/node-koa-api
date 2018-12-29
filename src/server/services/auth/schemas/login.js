@@ -11,7 +11,11 @@ const loginSchema = {
       'maxLength': 16,
       'pattern': '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
     }
-  }
+  },
+  'required': [
+    'username',
+    'password'
+  ]
 };
 
 export default loginSchema;

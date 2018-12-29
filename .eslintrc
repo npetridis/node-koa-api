@@ -3,6 +3,9 @@
     "parserOptions": {
         "ecmaVersion": 2017,
     },
+    "plugins": [
+        "security"
+    ],
     "rules": {
         "space-before-function-paren": 0
     }

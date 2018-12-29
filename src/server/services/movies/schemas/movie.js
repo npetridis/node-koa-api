@@ -12,7 +12,12 @@ const movieSchema = {
     'rating': {
       'type': 'number'
     }
-  }
+  },
+  'required': [
+    'title',
+    'genre',
+    'rating'
+  ]
 };
 
 export default movieSchema;
