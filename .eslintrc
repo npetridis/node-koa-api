@@ -4,9 +4,17 @@
         "ecmaVersion": 2017,
     },
     "plugins": [
-        "security"
+        "security",
+        "standard",
+        "import",
+        "node",
+        "promise"
     ],
     "rules": {
-        "space-before-function-paren": 0
+        "space-before-function-paren": 0,
+        "quotes": [
+            "error",
+            "single"
+        ],
     }
 }

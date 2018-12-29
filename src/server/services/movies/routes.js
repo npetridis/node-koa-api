@@ -34,7 +34,7 @@ const routes = [
   {
     method: 'DELETE',
     route: '/movies/:id',
-    handlers: [deleteMovie]
+    handlers: [authenticator, deleteMovie]
   }
 ];
 

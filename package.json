@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "prestart": "set NODE_ENV=dev",
-    "start": "set NODE_ENV=dev && nodemon --exec babel-node --presets env,stage-2 ./src/index.js",
-    "test": "./node_modules/mocha/bin/_mocha --require babel-register --require babel-polyfill --exit"
+    "start": "nodemon --exec babel-node --presets env,stage-2 ./src/index.js",
+    "pretest": "set NODE_ENV=test",
+    "test": "./node_modules/mocha/bin/_mocha --require babel-register --require babel-polyfill --exit",
+    "lint": "./node_modules/.bin/eslint src/",
+    "lint:test": "./node_modules/.bin/eslint test/"
   },
   "keywords": [],
   "author": "Nikos Petridis",
