@@ -1,6 +1,6 @@
 import { Movies } from '../../../domain';
 
-const deleteMovie = async (ctx) => {
+const deleteMovie = async ctx => {
   try {
     const movie = await Movies.deleteMovie(ctx.params.id);
     if (movie) {
@@ -24,6 +24,6 @@ const deleteMovie = async (ctx) => {
       message: error.message || 'Sorry, an error has occurred.'
     };
   }
-}
+};
 
 export default deleteMovie;

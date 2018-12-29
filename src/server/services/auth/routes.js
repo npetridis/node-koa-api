@@ -1,9 +1,9 @@
 import { validator } from '../../middleware';
-import { 
-  register as registerSchema, 
-  login as loginSchema 
+import {
+  register as registerSchema,
+  login as loginSchema
 } from './schemas';
-import { 
+import {
   register,
   login,
   logout,
@@ -16,12 +16,12 @@ const routes = [
   {
     method: 'POST',
     route: '/register',
-    handlers: [validator(registerSchema), register],
+    handlers: [validator(registerSchema), register]
   },
   {
     method: 'POST',
     route: '/login',
-    handlers: [validator(loginSchema), login],
+    handlers: [validator(loginSchema), login]
   },
   {
     method: 'GET',

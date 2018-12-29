@@ -2,13 +2,6 @@ import { User } from '../models';
 
 const Users = {};
 
-const projection = {
-  username: true,
-  email: true,
-  password: false,
-  __v: false
-};
-
 const project = 'username email';
 
 Users.getAll = () => User.find({}, project);

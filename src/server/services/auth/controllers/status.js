@@ -1,4 +1,4 @@
-const status = async (ctx) => {
+const status = async ctx => {
   if (ctx.isAuthenticated()) {
     ctx.status = 200;
     ctx.body = {

@@ -6,6 +6,6 @@ const errorHandler = async (ctx, next) => {
     ctx.body = err.message;
     ctx.app.emit('error', err, ctx);
   }
-}
+};
 
 export default errorHandler;

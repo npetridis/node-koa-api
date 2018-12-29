@@ -2,15 +2,15 @@
 
 export default {
   app: {
-   port: 4000
+    port: 4000
   },
   db: {
-   host: 'localhost',
-   port: 27017,
-   name: 'imdb',
-   uri: 'mongodb://localhost/imdb'
+    host: 'localhost',
+    port: 27017,
+    name: 'imdb',
+    uri: 'mongodb://localhost/imdb'
   },
   bcrypt: {
-   saltRounds: 10
+    saltRounds: 10
   }
 };

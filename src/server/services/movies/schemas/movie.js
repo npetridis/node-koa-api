@@ -10,7 +10,7 @@ const movieSchema = {
       'maxLength': 30
     },
     'rating': {
-      'type': 'number',
+      'type': 'number'
     }
   }
 };

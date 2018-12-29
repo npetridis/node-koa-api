@@ -3,7 +3,7 @@ import connectDatabase from './database';
 import setupServer from './server';
 import config from '../config';
 
-console.log('environment:', process.env.NODE_ENV)
+console.log('environment:', process.env.NODE_ENV);
 
 const app = new Koa();
 const port = config.app.port || 1337;
@@ -18,7 +18,7 @@ const server = (async () => {
 
   setupServer(app);
 
-  const server = await app.listen(port, () => console.log(`Server listening on port: ${port}`));
+  await app.listen(port, () => console.log(`Server listening on port: ${port}`));
   return app;
 })();
 

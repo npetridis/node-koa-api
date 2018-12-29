@@ -4,15 +4,15 @@ const MovieSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    unique : true
+    unique: true
   },
   genre: {
     type: String,
-    required: true,
+    required: true
   },
   rating: {
     type: Number,
-    required: true,
+    required: true
   }
 });
 

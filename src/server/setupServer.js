@@ -15,20 +15,20 @@ const setup = app => {
   app.use(errorHandler);
   app.use(logger());
   app.use(helmet());
-  app.keys = [process.env.APP_KEY];  // TODO move to .env after finding out what it does!
+  app.keys = [process.env.APP_KEY]; // TODO move to .env after finding out what it does!
   app.use(session(app));
-  
+
   app.use(bodyParser());
-  
+
   // import('./auth');
   app.use(passport.initialize());
   app.use(passport.session());
   require('./passport');
-  
+
   const router = createRouter([authRoutes, movieRoutes]);
   app.use(router.routes());
   app.use(router.allowedMethods());
-  
+
   return app;
 };
 

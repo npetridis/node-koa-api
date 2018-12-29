@@ -8,7 +8,7 @@ const validator = schema => {
     const valid = validate(ctx.request.body);
     if (valid) {
       // console.log('validation successful');
-      await next();    
+      await next();
     } else {
       // console.log('validation failed:\n', validate.errors);
       ctx.status = 400;
@@ -17,6 +17,6 @@ const validator = schema => {
       };
     }
   };
-}
+};
 
 export default validator;

@@ -1,9 +1,9 @@
 import { Movies } from '../../../domain';
 
-const updateMovie = async (ctx) => { // TODO: validate body schema
+const updateMovie = async ctx => { // TODO: validate body schema
   try {
     const movie = await Movies.updateMovie(ctx.params.id, ctx.request.body);
-    if (movie) {  // if update 200 or 204
+    if (movie) { // if update 200 or 204
       ctx.status = 200;
       ctx.body = {
         status: 'success',
@@ -24,6 +24,6 @@ const updateMovie = async (ctx) => { // TODO: validate body schema
       message: error.message || 'Sorry, an error has occurred.'
     };
   }
-}
+};
 
 export default updateMovie;

@@ -9,7 +9,7 @@ Movies.getAllMovies = () => Movie.find({}, projection);
 Movies.getMovieById = id => Movie.findById(id, projection);
 
 Movies.saveMovie = movie => new Movie(movie).save();
-  
+
 Movies.updateMovie = (id, movie) => Movie.findOneAndUpdate({ _id: id }, movie);
 
 Movies.deleteMovie = id => Movie.findByIdAndDelete(id);

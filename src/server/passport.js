@@ -27,9 +27,8 @@ passport.use('local', new LocalStrategy({
     } else {
       return done(null, false, { errors: { 'email or password': 'is invalid' } });
     }
-  
   } catch (error) {
-    console.log(error)
+    console.log(error);
     // TODO error handling?
   }
 }));

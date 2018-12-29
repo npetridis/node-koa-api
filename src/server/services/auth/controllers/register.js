@@ -1,12 +1,12 @@
 import { Users } from '../../../domain';
 
-const register = async (ctx) => { // TODO verification email to user
+const register = async ctx => { // TODO verification email to user
   try {
     const user = await Users.saveUser(ctx.request.body);
     ctx.status = 200;
     ctx.body = {
       status: 'success',
-      payload: user   // TODO remove payload
+      payload: user // TODO remove payload
     };
   } catch (error) {
     console.log(error);
@@ -16,6 +16,6 @@ const register = async (ctx) => { // TODO verification email to user
       payload: error.message
     };
   }
-}
+};
 
 export default register;

@@ -1,0 +1,9 @@
+{
+    "extends": "koa",
+    "parserOptions": {
+        "ecmaVersion": 2017,
+    },
+    "rules": {
+        "space-before-function-paren": 0
+    }
+}

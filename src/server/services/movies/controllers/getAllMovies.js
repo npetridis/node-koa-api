@@ -1,6 +1,6 @@
 import { Movies } from '../../../domain';
 
-const getAllMovies = async (ctx) => {
+const getAllMovies = async ctx => {
   try {
     const movies = await Movies.getAllMovies();
     ctx.status = 200;
@@ -16,6 +16,6 @@ const getAllMovies = async (ctx) => {
       message: error.message || 'Sorry, an error has occurred.'
     };
   }
-}
+};
 
 export default getAllMovies;

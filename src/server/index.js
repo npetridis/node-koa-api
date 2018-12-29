@@ -1,11 +1,11 @@
 // import 'dotenv/config';
-// 
+//
 // import Koa from 'koa';
 // import { User } from './models';
 // import mongoose from 'mongoose';
-// 
+//
 // import router from './routes';
-// 
+//
 // const app = new Koa();
 // const port = process.env.PORT || 1337;
 
@@ -22,7 +22,7 @@ export default setupServer;
 //   } catch (error) {
 //     console.error('Unable to connect to database');
 //   }
-// 
+//
 //   await app.listen(port);
 //   console.log(`Server started on port ${port}`);
 // })();
@@ -35,8 +35,8 @@ export default setupServer;
 //     message: 'hello, world!'
 //   };
 //   const user = new User({
-//     firstName: 'Nikos', 
-//     lastName:'Petridis', 
+//     firstName: 'Nikos',
+//     lastName:'Petridis',
 //     dob: new Date()
 //   })
 //   user.save();

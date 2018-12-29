@@ -9,11 +9,11 @@ const registerSchema = {
       'type': 'string',
       'minLength': 8,
       'maxLength': 16,
-      'pattern': '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$' 
+      'pattern': '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
     },
-    'email': { 
-      'type': 'string', 
-      'format': 'email' 
+    'email': {
+      'type': 'string',
+      'format': 'email'
     }
   }
 };
