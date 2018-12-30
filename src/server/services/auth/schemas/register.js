@@ -15,7 +15,12 @@ const registerSchema = {
       'type': 'string',
       'format': 'email'
     }
-  }
+  },
+  'required': [
+    'username',
+    'password',
+    'email'
+  ]
 };
 
 export default registerSchema;

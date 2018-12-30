@@ -1,4 +1,4 @@
-process.env.NODE_ENV = 'test';
+// process.env.NODE_ENV = 'test';
 
 import chai from 'chai';
 import chaiHttp from 'chai-http';
@@ -14,7 +14,7 @@ const server = require('../src/index');
 
 const testUser = {
   username: 'spongebob',
-  password: 'garyTheSnail',
+  password: '12asAS!@#',
   email: 'sponge@bob.com' 
 };
 
@@ -25,21 +25,22 @@ describe('Test api', () => {
   })
 
   describe('Test auth routes', () => {
-    it('should return register a user successfully', (done) => {
+    it('should register a user successfully', (done) => {
       // const test = await server;
       // server.then(t => console.log('AAAA',t))
       // console.log('BBBB', server)
       chai.request('localhost:4000')
         .post('/auth/register')
         .send(testUser)
-        .end((err, res) => {
+        .end(async (err, res) => {
           should.not.exist(err);
+          res.body.status.should.equal('success');
           res.status.should.eql(200);
           res.type.should.eql('application/json');
-          res.body.status.should.equal('success');
-          // res.body.payload.should.eql(testUser);
-          userCompare(res.body.payload, testUser).should.eql(true);
-          done();
+          const match = await userCompare(res.body.payload, testUser);
+          // console.log('========== ', match);
+          match.should.eql(true);
+          done()
         });
     });
   });
