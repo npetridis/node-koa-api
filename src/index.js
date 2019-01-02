@@ -18,8 +18,8 @@ const server = (async () => {
 
   setupServer(app);
 
-  await app.listen(port, () => console.log(`Server listening on port: ${port}`));
-  return app;
+  return app.listen(port, () => console.log(`Server listening on port: ${port}`));
+  // return app;
 })();
 
 // connectDatabase(config.db.uri).then(() => console.log(`Connected to  database ${info.host}:${info.port}/${info.name}`));

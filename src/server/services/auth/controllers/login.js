@@ -14,7 +14,10 @@ const login = async ctx => {
       ctx.redirect('/auth/status');
     } else {
       ctx.status = 400;
-      ctx.body = { status: 'error' };
+      ctx.body = {
+        status: 'error',
+        message: 'User does not exist'
+      };
     }
   })(ctx);
 };

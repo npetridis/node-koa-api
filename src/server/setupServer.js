@@ -15,7 +15,7 @@ const setup = app => {
   app.use(errorHandler);
   app.use(logger());
   app.use(helmet());
-  app.keys = [process.env.APP_KEY]; // TODO move to .env after finding out what it does!
+  app.keys = [process.env.APP_KEY];
   app.use(session(app));
 
   app.use(bodyParser());

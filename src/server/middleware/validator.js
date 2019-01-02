@@ -11,8 +11,9 @@ const validator = schema => {
       await next();
     } else {
       // console.log('validation failed:\n', validate.errors);
-      ctx.status = 400;
+      ctx.status = 403;
       ctx.body = {
+        status: 'error',
         errors: validate.errors
       };
     }
