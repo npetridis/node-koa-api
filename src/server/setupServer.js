@@ -3,11 +3,10 @@
 import helmet from 'koa-helmet';
 import logger from 'koa-logger';
 import session from 'koa-session';
-import RedisStore from 'koa-redis';
+import { connectSession } from '../databases';
 import bodyParser from 'koa-bodyparser';
 import passport from 'koa-passport';
 import 'dotenv/config';
-import config from '../../config';
 
 import { authRoutes, movieRoutes } from './services';
 import createRouter from './createRouter';
@@ -19,10 +18,7 @@ const setup = app => {
   app.use(helmet());
   app.keys = [process.env.APP_KEY];
   app.use(session({
-    store: new RedisStore({
-      host: config.sessionDb.host,
-      port: config.sessionDb.port
-    })
+    store: connectSession()
   }, app));
 
   app.use(bodyParser());

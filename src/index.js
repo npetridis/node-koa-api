@@ -1,5 +1,5 @@
 import Koa from 'koa';
-import connectDatabase from './database';
+import { connectDatabase } from './databases';
 import setupServer from './server';
 import config from '../config';
 
