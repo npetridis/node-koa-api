@@ -1,9 +1,11 @@
-import dev from './development';
+import dev from './dev';
 import test from './test';
+import prod from './prod';
 
 const config = {
   dev,
-  test
+  test,
+  prod
 };
 
 const environment = process.env.NODE_ENV || 'dev';
