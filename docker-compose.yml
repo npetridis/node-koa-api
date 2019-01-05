@@ -6,9 +6,15 @@ services:
     ports:
       - "27017:27017"
       
+  redis:
+    image: redis:3.0.5
+    ports:
+      - "6379:6379"
+
   backend:
     build: .
     ports:
       - "4000:4000"
     depends_on:
     - mongo
+    - redis
