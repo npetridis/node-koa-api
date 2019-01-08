@@ -4,6 +4,7 @@ import helmet from 'koa-helmet';
 import logger from 'koa-logger';
 import session from 'koa-session';
 import { connectSession } from '../databases';
+import cors from '@koa/cors';
 import bodyParser from 'koa-bodyparser';
 import passport from 'koa-passport';
 import 'dotenv/config';
@@ -16,6 +17,7 @@ const setup = app => {
   app.use(errorHandler);
   app.use(logger());
   app.use(helmet());
+  app.use(cors());
   app.keys = [process.env.APP_KEY];
   app.use(session({
     store: connectSession()
