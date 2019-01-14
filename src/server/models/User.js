@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 
 import config from '../../../config';
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   email: { // TODO email validation
     type: String,
     required: true,
@@ -24,14 +24,14 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
-UserSchema.pre('save', async function(next) { // TODO den paizei me arrow function??
+userSchema.pre('save', async function(next) { // TODO den paizei me arrow function??
   if (!this.isModified('password')) return next();
   this.password = await bcrypt.hash(this.password, config.bcrypt.saltRounds);
   next();
 });
 
-UserSchema.methods.validatePassword = async function(password) {
+userSchema.methods.validatePassword = async function(password) {
   return bcrypt.compare(password, this.password);
 };
 
-export default mongoose.model('User', UserSchema);
+export default mongoose.model('User', userSchema);

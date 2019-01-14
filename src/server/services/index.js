@@ -19,5 +19,14 @@
 
 import { routes as authRoutes } from './auth';
 import { routes as movieRoutes } from './movies';
+import { routes as productRoutes } from './products';
 
-export { authRoutes, movieRoutes };
+const routes = [
+  authRoutes, 
+  movieRoutes, 
+  productRoutes
+];
+
+export { 
+  routes
+};
